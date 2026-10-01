@@ -1,4 +1,4 @@
-# Wedding Pages Test
+# WEB Pages Test
 
 GitHub Pages の動作確認用サンプルです。
 
