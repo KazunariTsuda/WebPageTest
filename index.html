@@ -1,65 +1,86 @@
 <!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="robots" content="noindex,nofollow" />
-  <title>Wedding Message</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wedding | Kazunari & Shiho</title>
+  <meta name="robots" content="noindex,nofollow">
   <style>
-    :root { --bg:#f8f4ed; --paper:#fffdf9; --text:#3e382f; --sub:#776f64; --accent:#a97748; }
-    * { box-sizing: border-box; }
-    body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif; background:var(--bg); color:var(--text); }
-    main { max-width:680px; margin:auto; padding:48px 20px 64px; }
-    .card { background:var(--paper); border-radius:22px; padding:34px 24px; box-shadow:0 10px 35px rgba(70,50,25,.08); text-align:center; }
-    .eyebrow { letter-spacing:.18em; color:var(--accent); font-size:12px; }
-    h1 { margin:12px 0 8px; font-family:Georgia,"Yu Mincho",serif; font-weight:500; font-size:32px; }
-    .date { color:var(--sub); margin-bottom:30px; }
-    .photo { width:100%; aspect-ratio:4/3; border-radius:16px; background:linear-gradient(135deg,#ead9c5,#d6b891); display:grid; place-items:center; color:#fff; margin:0 0 28px; }
-    .photo span { font-size:14px; letter-spacing:.08em; }
-    #guest-name { font-size:23px; margin:4px 0 16px; }
-    #message { line-height:2; text-align:left; white-space:pre-line; }
-    hr { border:0; border-top:1px solid #e9dfd3; margin:30px 0; }
-    .from { font-family:Georgia,"Yu Mincho",serif; }
-    .note { margin-top:18px; font-size:12px; color:var(--sub); }
+    :root{--bg:#fffaf3;--card:#ffffff;--ink:#3f342c;--sub:#7f6b5d;--accent:#c97947;--line:#ead8c8}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Yu Gothic",sans-serif;background:var(--bg);color:var(--ink)}
+    .wrap{max-width:760px;margin:auto;padding:28px 18px 48px}
+    .hero{text-align:center;padding:42px 12px 26px}
+    .hero .small{letter-spacing:.16em;color:var(--sub);font-size:12px}
+    h1{font-family:Georgia,serif;font-weight:500;font-size:38px;margin:10px 0}
+    .date{color:var(--sub)}
+    .message{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px;margin:14px 0 26px;box-shadow:0 7px 20px rgba(70,40,20,.05)}
+    .message h2{margin:0 0 12px;font-size:21px}
+    .message p{line-height:1.9;margin:0;white-space:pre-line}
+    .menu{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .card{display:block;text-decoration:none;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px 18px;min-height:145px}
+    .card .icon{font-size:30px}
+    .card h3{margin:12px 0 5px}
+    .card p{margin:0;color:var(--sub);font-size:14px;line-height:1.6}
+    footer{text-align:center;color:var(--sub);font-size:12px;margin-top:38px}
+    @media(max-width:520px){.menu{grid-template-columns:1fr}.hero{padding-top:28px}h1{font-size:32px}}
   </style>
 </head>
 <body>
-<main>
-  <section class="card">
-    <div class="eyebrow">WELCOME TO OUR WEDDING</div>
-    <h1>Thank you</h1>
-    <div class="date">2026.10.25</div>
+  <main class="wrap">
+    <section class="hero">
+      <div class="small">OUR WEDDING</div>
+      <h1>Kazunari & Shiho</h1>
+      <div class="date">2026.10.25 · Izumo</div>
+    </section>
 
-    <div class="photo"><span>ここに二人の写真を入れます</span></div>
+    <section class="message">
+      <h2 id="guestTitle">ようこそ</h2>
+      <p id="guestMessage">今日は私たちの結婚の日にお越しいただき、ありがとうございます。
+家族みんなでゆっくり楽しんでいただけたら嬉しいです。</p>
+    </section>
 
-    <div id="guest-name"></div>
-    <div id="message"></div>
+    <nav class="menu">
+      <a class="card" id="profileLink" href="profile.html">
+        <div class="icon">👫</div>
+        <h3>Profile</h3>
+        <p>ふたりのプロフィールや、ちょっとした紹介です。</p>
+      </a>
+      <a class="card" id="albumLink" href="album.html">
+        <div class="icon">📷</div>
+        <h3>Album</h3>
+        <p>ふたりの思い出の写真をまとめています。</p>
+      </a>
+    </nav>
 
-    <hr>
-    <div class="from">Kazunari &amp; Shiho</div>
-    <div class="note">家族婚Webサイト・GitHub Pages 動作確認用サンプル</div>
-  </section>
-</main>
+    <footer>Thank you for celebrating with us.</footer>
+  </main>
+
 <script>
 const guests = {
   father: {
-    name: "お父さんへ",
-    message: "今日は来てくれてありがとう。\nこれまで支えてくれたことへの感謝を込めて、二人でこの日を迎えられたことを嬉しく思います。"
+    title: "お父さんへ",
+    message: "今日は来てくれてありがとう。\nこれまでたくさん支えてくれたこと、本当に感謝しています。"
   },
   mother: {
-    name: "お母さんへ",
-    message: "今日は来てくれてありがとう。\nこれまでたくさん支えてくれて、本当にありがとう。これからも二人をよろしくお願いします。"
+    title: "お母さんへ",
+    message: "今日は来てくれてありがとう。\nこれまで見守ってくれたこと、本当に感謝しています。"
   },
   test: {
-    name: "テストゲストさんへ",
-    message: "QRコードからのアクセスを想定したテストメッセージです。\nURLの guest= の部分を変えることで、表示内容を個別に変更できます。"
+    title: "テストゲストさんへ",
+    message: "個別メッセージ表示のテストです。\nこの内容はURLの guest パラメータによって切り替わっています。"
   }
 };
 
-const key = new URLSearchParams(location.search).get("guest") || "test";
-const guest = guests[key] || guests.test;
-document.getElementById("guest-name").textContent = guest.name;
-document.getElementById("message").textContent = guest.message;
+const params = new URLSearchParams(location.search);
+const guest = params.get("guest");
+if (guest && guests[guest]) {
+  document.getElementById("guestTitle").textContent = guests[guest].title;
+  document.getElementById("guestMessage").textContent = guests[guest].message;
+}
+const suffix = guest ? "?guest=" + encodeURIComponent(guest) : "";
+document.getElementById("profileLink").href = "profile.html" + suffix;
+document.getElementById("albumLink").href = "album.html" + suffix;
 </script>
 </body>
 </html>

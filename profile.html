@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Profile | Wedding</title>
+  <meta name="robots" content="noindex,nofollow">
+  <style>
+    :root{--bg:#fffaf3;--card:#fff;--ink:#3f342c;--sub:#7f6b5d;--accent:#c97947;--line:#ead8c8}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Yu Gothic",sans-serif;background:var(--bg);color:var(--ink)}
+    .wrap{max-width:760px;margin:auto;padding:26px 18px 48px}
+    .back{text-decoration:none;color:var(--accent);font-size:14px}
+    h1{font-family:Georgia,serif;font-weight:500;font-size:34px;margin:26px 0 22px}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .person{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px}
+    .avatar{height:190px;border-radius:14px;background:#f1e4d8;display:grid;place-items:center;font-size:64px;margin-bottom:18px}
+    h2{margin:0 0 10px}.meta{color:var(--sub);line-height:1.8}
+    .story{margin-top:20px;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px;line-height:1.9}
+    @media(max-width:560px){.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <a class="back" id="backLink" href="index.html">← Topへ戻る</a>
+    <h1>Profile</h1>
+
+    <section class="grid">
+      <article class="person">
+        <div class="avatar">🤵</div>
+        <h2>新郎</h2>
+        <div class="meta">名前：津田 一成<br>好きなこと：ものづくり、旅行<br>ひとこと：今日は来てくれてありがとうございます。</div>
+      </article>
+      <article class="person">
+        <div class="avatar">👰</div>
+        <h2>新婦</h2>
+        <div class="meta">名前：白保 ○○<br>好きなこと：○○、○○<br>ひとこと：ゆっくり楽しんでください。</div>
+      </article>
+    </section>
+
+    <section class="story">
+      <strong>About us</strong><br>
+      ここには「出会い」「付き合い始めた時期」「思い出」「入籍」など、
+      ふたりの簡単なストーリーを掲載できます。
+    </section>
+  </main>
+<script>
+const guest = new URLSearchParams(location.search).get("guest");
+if (guest) document.getElementById("backLink").href = "index.html?guest=" + encodeURIComponent(guest);
+</script>
+</body>
+</html>
