@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>Wedding Message</title>
+  <style>
+    :root { --bg:#f8f4ed; --paper:#fffdf9; --text:#3e382f; --sub:#776f64; --accent:#a97748; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif; background:var(--bg); color:var(--text); }
+    main { max-width:680px; margin:auto; padding:48px 20px 64px; }
+    .card { background:var(--paper); border-radius:22px; padding:34px 24px; box-shadow:0 10px 35px rgba(70,50,25,.08); text-align:center; }
+    .eyebrow { letter-spacing:.18em; color:var(--accent); font-size:12px; }
+    h1 { margin:12px 0 8px; font-family:Georgia,"Yu Mincho",serif; font-weight:500; font-size:32px; }
+    .date { color:var(--sub); margin-bottom:30px; }
+    .photo { width:100%; aspect-ratio:4/3; border-radius:16px; background:linear-gradient(135deg,#ead9c5,#d6b891); display:grid; place-items:center; color:#fff; margin:0 0 28px; }
+    .photo span { font-size:14px; letter-spacing:.08em; }
+    #guest-name { font-size:23px; margin:4px 0 16px; }
+    #message { line-height:2; text-align:left; white-space:pre-line; }
+    hr { border:0; border-top:1px solid #e9dfd3; margin:30px 0; }
+    .from { font-family:Georgia,"Yu Mincho",serif; }
+    .note { margin-top:18px; font-size:12px; color:var(--sub); }
+  </style>
+</head>
+<body>
+<main>
+  <section class="card">
+    <div class="eyebrow">WELCOME TO OUR WEDDING</div>
+    <h1>Thank you</h1>
+    <div class="date">2026.10.25</div>
+
+    <div class="photo"><span>ここに二人の写真を入れます</span></div>
+
+    <div id="guest-name"></div>
+    <div id="message"></div>
+
+    <hr>
+    <div class="from">Kazunari &amp; Shiho</div>
+    <div class="note">家族婚Webサイト・GitHub Pages 動作確認用サンプル</div>
+  </section>
+</main>
+<script>
+const guests = {
+  father: {
+    name: "お父さんへ",
+    message: "今日は来てくれてありがとう。\nこれまで支えてくれたことへの感謝を込めて、二人でこの日を迎えられたことを嬉しく思います。"
+  },
+  mother: {
+    name: "お母さんへ",
+    message: "今日は来てくれてありがとう。\nこれまでたくさん支えてくれて、本当にありがとう。これからも二人をよろしくお願いします。"
+  },
+  test: {
+    name: "テストゲストさんへ",
+    message: "QRコードからのアクセスを想定したテストメッセージです。\nURLの guest= の部分を変えることで、表示内容を個別に変更できます。"
+  }
+};
+
+const key = new URLSearchParams(location.search).get("guest") || "test";
+const guest = guests[key] || guests.test;
+document.getElementById("guest-name").textContent = guest.name;
+document.getElementById("message").textContent = guest.message;
+</script>
+</body>
+</html>
